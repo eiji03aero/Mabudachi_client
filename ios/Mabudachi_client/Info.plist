@@ -52,7 +52,7 @@
 		</dict>
 	</dict>
 	<key>CodePushDeploymentKey</key>
-	<string>FGmwisv3YDUDqsDltIcMVspxrd2dbea15604-e2f2-4b67-8c74-56126bc53d08</string>
+	<string>deployment-key-here</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Entypo.ttf</string>
