@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {
   StyleSheet,
-  Text,
   View
 } from 'react-native';
 import { StackNavigator } from 'react-navigation'
@@ -19,7 +18,7 @@ const AppNavigator = StackNavigator({
   Screen3: { screen: Screen3 },
 })
 
-export default class App extends Component {
+export default class App extends Component<{}, {}> {
   render () {
     return (
       <View style={styles.container}>
