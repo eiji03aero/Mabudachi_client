@@ -32,7 +32,7 @@ class ColorPicker extends Component<{}, State> {
     this.handleColorChange = this.handleColorChange.bind(this);
   }
 
-  handleColorChange (payload : Payload) {
+  handleColorChange (payload : Payload): void {
     const { colors } = this.state;
     const { color, value } = payload;
     const newColors = {

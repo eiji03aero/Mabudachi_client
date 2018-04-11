@@ -17,14 +17,10 @@ interface State {
 
 }
 
-class ColorEdit extends React.Component<Props, State> {
+function ColorEdit (props : Props) {
+  const { onColorChange, color } = props;
 
-  constructor (props : Props) {
-    super(props);
-  }
-
-  handleSlidingComplete (v : number) {
-    const { onColorChange, color } = this.props;
+  const handleSlidingComplete =  (v : number) => {
     const value = v.toString();
     const payload = {
       color,
@@ -34,26 +30,22 @@ class ColorEdit extends React.Component<Props, State> {
     onColorChange(payload);
   }
 
-  render () {
-    const { color } = this.props;
+  return (
+    <View style={styles.ColorEditContainer}>
 
-    return (
-      <View style={styles.ColorEditContainer}>
+      <Text style={styles.ColorEditText}>
+        { color }
+      </Text>
 
-        <Text style={styles.ColorEditText}>
-          { color }
-        </Text>
+      <Slider
+        style={styles.ColorEditSlider}
+        step={1}
+        minimumValue={1}
+        maximumValue={255}
+        onSlidingComplete={(v) => handleSlidingComplete(v)} />
 
-        <Slider
-          style={styles.ColorEditSlider}
-          step={1}
-          minimumValue={1}
-          maximumValue={255}
-          onSlidingComplete={(v) => this.handleSlidingComplete(v)} />
-
-      </View>
-    )
-  }
+    </View>
+  )
 }
 
 const styles = StyleSheet.create({
