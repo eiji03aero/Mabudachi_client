@@ -9,45 +9,45 @@ import ColorEdit from './ColorEdit';
 import { Colors } from './Colors';
 
 interface State {
-  colors : Colors;
+  colors: Colors;
 }
 
 interface Payload {
-  color : keyof Colors;
-  value : string;
+  color: keyof Colors;
+  value: string;
 }
 
 class ColorPicker extends Component<{}, State> {
 
-  constructor (props : any) {
+  constructor (props: any) {
     super(props);
     this.state = {
       colors: {
         green: '0',
         blue: '0',
         red: '0',
-      }
+      },
     };
 
     this.handleColorChange = this.handleColorChange.bind(this);
   }
 
-  handleColorChange (payload : Payload): void {
+  private handleColorChange (payload: Payload): void {
     const { colors } = this.state;
     const { color, value } = payload;
     const newColors = {
       ...colors,
-      [ color ]: value
+      [ color ]: value,
     };
 
     this.setState({ colors: newColors });
   }
 
-  render () {
+  public render () {
     const { colors } = this.state;
     const colorString = Object.keys(colors)
-                              .map((key : string) => key + ': ' + colors[key])
-                              .join('\n')
+                              .map((key: string) => key + ': ' + colors[key])
+                              .join('\n');
 
     return (
       <View>
@@ -71,7 +71,7 @@ class ColorPicker extends Component<{}, State> {
           onColorChange={this.handleColorChange} />
 
       </View>
-    )
+    );
   }
 }
 

@@ -1,7 +1,7 @@
 export interface Colors {
-  green : string;
-  red   : string;
-  blue  : string;
+  green: string;
+  red: string;
+  blue: string;
 
-  [key : string] : string;
+  [key: string]: string;
 }

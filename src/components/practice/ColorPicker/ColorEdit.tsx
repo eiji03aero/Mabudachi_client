@@ -9,22 +9,22 @@ import {
 import { Colors } from './Colors';
 
 interface Props {
-  color : keyof Colors;
-  onColorChange : (payload : any) => void;
+  color: keyof Colors;
+  onColorChange: (payload: any) => void;
 }
 
-function ColorEdit (props : Props) {
+function ColorEdit (props: Props) {
   const { onColorChange, color } = props;
 
-  const handleSlidingComplete =  (v : number) => {
+  const handleSlidingComplete =  (v: number) => {
     const value = v.toString();
     const payload = {
       color,
       value,
-    }
+    };
 
     onColorChange(payload);
-  }
+  };
 
   return (
     <View style={styles.ColorEditContainer}>
@@ -41,7 +41,7 @@ function ColorEdit (props : Props) {
         onSlidingComplete={(v) => handleSlidingComplete(v)} />
 
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
@@ -56,8 +56,8 @@ const styles = StyleSheet.create({
   },
   ColorEditSlider: {
     flex: 1,
-    padding: 5
-  }
-})
+    padding: 5,
+  },
+});
 
 export default ColorEdit;
