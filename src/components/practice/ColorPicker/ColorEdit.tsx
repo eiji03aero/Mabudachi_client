@@ -13,10 +13,6 @@ interface Props {
   onColorChange : (payload : any) => void;
 }
 
-interface State {
-
-}
-
 function ColorEdit (props : Props) {
   const { onColorChange, color } = props;
 
