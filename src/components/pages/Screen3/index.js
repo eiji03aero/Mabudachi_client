@@ -12,7 +12,7 @@ import TodoInput from '../../organisms/TodoInput';
 import TodoEditModal from '../../organisms/TodoEditModal';
 import styles from './style.js';
 
-import { todos } from './todos.json';
+import { todos } from '../../../models/todos.json';
 
 class Screen3 extends Component {
   constructor (props) {
@@ -98,7 +98,7 @@ class Screen3 extends Component {
                 onOpenEdit={(id) => this.handleOpenEdit(id)}
                 onDelete={(id) => this.handleDelete(id)}
                 onCompletedChange={(p) => this.handleCompletedChange(p)}
-                {...item} />
+                todo={item} />
             )}}
           keyExtractor={(item,index) => index.toString()}
           style={styles.todoPageMainContainer} />
