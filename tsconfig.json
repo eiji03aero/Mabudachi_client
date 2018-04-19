@@ -8,8 +8,8 @@
     "module": "ES2015",
     "lib": ["es5", "es6", "dom"],
     "jsx": "react-native",
-    "outDir": "build",
-    "rootDir": "src",
+    "outDir": "./build/",
+    "rootDir": "./src/",
     "removeComments": true,
     // "noEmit": true,                        /* Do not emit outputs. */
     // "importHelpers": true,                 /* Import emit helpers from 'tslib'. */
