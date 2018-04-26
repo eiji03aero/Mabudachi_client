@@ -1,27 +1,31 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import {
-  StyleSheet,
   Text,
   Button,
-  TextInput,
   View
 } from 'react-native';
 
-class Screen1 extends Component {
-  constructor (props) {
+interface Props { }
+
+interface State {
+  text: string;
+}
+
+class Screen1 extends Component<Props,State> {
+  constructor (props: any) {
     super(props);
     this.state = {
       text: 'aint pushed yet'
     }
   }
 
-  handlePress () {
+  public handlePress () {
     this.setState((pre) => ({
       text: 'you are brave as hell man'
     }))
   }
 
-  render () {
+  public render () {
     return (
       <View>
         <Text>Screen1</Text>

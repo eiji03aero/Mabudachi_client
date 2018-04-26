@@ -1,6 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import {
-  StyleSheet,
   View,
   TouchableOpacity,
 } from 'react-native';
@@ -9,15 +8,23 @@ import colors from '../../../styles/colors.js';
 
 import styles from './style.js';
 
-class CheckBox extends Component {
+interface Props {
+  isChecked: boolean;
+  onPress: (d: boolean) => void;
+  activeColor: string;
+}
 
-  handlePress (e) {
+interface State { }
+
+class CheckBox extends Component<Props, State> {
+
+  public handlePress (e: any) {
     const { isChecked, onPress } = this.props;
     onPress(!isChecked);
   }
 
-  render () {
-    const { isChecked, activeColor, onPress } = this.props;
+  public render () {
+    const { isChecked, activeColor } = this.props;
 
     return (
       <TouchableOpacity

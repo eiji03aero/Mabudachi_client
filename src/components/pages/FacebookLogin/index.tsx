@@ -1,17 +1,23 @@
-import React, { Component } from 'react'
+import React from 'react';
 import {
-  StyleSheet,
-  Text,
   Button,
   Image,
-  TextInput,
   View
 } from 'react-native';
+import styles from './style';
 
 const bgImage = require('../../../assets/images/fb_login_bg.jpg');
 
+interface ReactProps {
+  navigation: any;
+  navigationOptions: any;
+}
 
-const FacebookLogin = ({ navigation: { navigate } }) => {
+interface Props extends React.SFC<ReactProps> {
+  navigationOptions?: any;
+}
+
+const FacebookLogin: Props = ({ navigation: { navigate } }) => {
   return (
     <View style={styles.facebookLoginContainer}>
       <Image source={ bgImage } style={styles.backgroundCover} resizeMode="cover"/>
@@ -33,38 +39,8 @@ const FacebookLogin = ({ navigation: { navigate } }) => {
 }
 
 const navigationOptions = {
-  header: null
-}
-
-const styles = StyleSheet.create({
-  facebookLoginContainer: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  backgroundCover: {
-    flex: 1,
-  },
-  loginContainerWrapper: {
-    position: 'absolute',
-    top: 0,
-    bottom: 0,
-    left: 0,
-    right: 0,
-    backgroundColor: 'rgba(0,0,0, .5)',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  loginContainer: {
-    width: 200,
-    height: 300,
-    backgroundColor: '#ffffff',
-    borderRadius: 10,
-    shadowColor: '#999999',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8
-  }
-})
+  header: null,
+};
 
 FacebookLogin.navigationOptions = navigationOptions
 

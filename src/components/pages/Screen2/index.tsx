@@ -1,15 +1,26 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import {
-  StyleSheet,
   Text,
   TextInput,
   Button,
-  View
+  View,
 } from 'react-native';
-import OpenWeatherMap from './open_weather_map.js'
 
-class Screen2 extends Component{
-  constructor (props) {
+import OpenWeatherMap from './open_weather_map.js'
+import styles from './style';
+
+interface Props { }
+
+interface State {
+  zip: string;
+  main: string;
+  description: string;
+  temp: string;
+  isFetching: boolean;
+}
+
+class Screen2 extends Component<Props,State> {
+  constructor (props: any) {
     super(props)
     this.state = {
       zip: '',
@@ -74,35 +85,5 @@ class Screen2 extends Component{
     )
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#555555'
-  },
-  header: {
-    backgroundColor: '#eeeeee',
-    paddingLeft: 10,
-    paddingRight: 10,
-  },
-  body: {
-    flex: 1,
-  },
-  input: {
-    borderColor: '#333333',
-    borderWidth: 1,
-    borderRadius: 5,
-    paddingLeft: 10,
-    paddingRight: 10,
-  },
-  weatherMsg: {
-    color: '#ffffff',
-    fontSize: 24,
-  },
-  bigText: {
-    color: '#ffffff',
-    fontSize: 36
-  }
-})
 
 export default Screen2

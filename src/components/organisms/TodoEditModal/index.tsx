@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import {
   Text,
   Button,
@@ -6,11 +6,23 @@ import {
   View,
 } from 'react-native';
 import Modal from 'react-native-modalbox';
+import { Todo } from '../../../models/Todo';
 
 import styles from './style.js';
 
-class TodoEditModal extends Component {
-  constructor (props) {
+interface Props {
+  todo: Todo;
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+interface State {
+  title: string;
+  description: string;
+}
+
+class TodoEditModal extends Component<Props, State> {
+  public constructor (props: any) {
     super(props);
     this.state = {
       title: '',
@@ -18,7 +30,7 @@ class TodoEditModal extends Component {
     }
   }
 
-  componentWillReceiveProps (next) {
+  public componentWillReceiveProps (next: Props) {
     const { title, description } = next.todo;
     this.setState((pre) => ({
       title,
@@ -26,11 +38,11 @@ class TodoEditModal extends Component {
     }))
   }
 
-  handleClose () {
+  public handleClose () {
     this.props.onClose();
   }
 
-  render () {
+  public render () {
     const { isOpen } = this.props;
     const { title, description } = this.state;
 

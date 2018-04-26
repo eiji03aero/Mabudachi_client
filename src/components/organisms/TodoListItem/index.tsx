@@ -1,26 +1,36 @@
 import React, { Component } from 'react'
 import {
-  StyleSheet,
   Text,
   View,
   TouchableOpacity,
 } from 'react-native';
 
 import CheckBox from '../../atoms/CheckBox';
-import styles from './style.js';
-import colors from '../../../styles/colors.js';
+import { Todo } from '../../../models/Todo';
+import styles from './style';
 
-class TodoListItem extends Component {
+interface Props {
+  onOpenEdit: (id: string) => any;
+  onDelete: (id: string) => any;
+  onCompletedChange: (p: any) => any;
+  todo: Todo
+}
 
-  constructor (props) {
+interface State {
+  isOpen: boolean
+}
+
+class TodoListItem extends Component<Props, State> {
+
+  constructor (props: any) {
     super(props);
     this.state = {
       isOpen: false
     }
   }
 
-  handleCompletedChange (isChecked) {
-    const { onCompletedChange, id } = this.props;
+  handleCompletedChange (isChecked: boolean) {
+    const { onCompletedChange, todo: { id } } = this.props;
     const params = {
       isChecked,
       id
@@ -30,24 +40,22 @@ class TodoListItem extends Component {
   }
 
   handlePressOnTitle () {
-    const { isOpen } = this.state;
-
-    this.setState(() => ({ isOpen: !this.state.isOpen }))
+    this.setState((pre) => ({ isOpen: !pre.isOpen }))
   }
 
   handleEdit () {
-    const { id, onOpenEdit } = this.props;
+    const { onOpenEdit, todo: { id } } = this.props;
 
     onOpenEdit(id);
   }
 
   handleDelete () {
-    const { id, onDelete } = this.props;
+    const { onDelete, todo: { id } } = this.props;
     onDelete(id);
   }
 
-  render() {
-    const { id, title, description, isCompleted } = this.props;
+  render () {
+    const { todo: { title, description, isCompleted } } = this.props;
     const { isOpen } = this.state;
 
     return (
@@ -59,13 +67,13 @@ class TodoListItem extends Component {
           <CheckBox
             isChecked={isCompleted}
             activeColor="#5555ff"
-            onPress={(c) => this.handleCompletedChange(c)} />
+            onPress={(c: any) => this.handleCompletedChange(c)} />
         </View>
 
         <View style={styles.listItemContent}>
 
           <TouchableOpacity onPress={() => this.handlePressOnTitle()}>
-            <Text style={isCompleted ? styles.listItemTitle_Completed : ''}>{title}</Text>
+            <Text style={isCompleted ? styles.listItemTitle_Completed : null}>{title}</Text>
           </TouchableOpacity>
 
           <View style={[
