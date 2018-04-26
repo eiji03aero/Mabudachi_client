@@ -1,11 +1,18 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import {
   TextInput,
 } from 'react-native';
 
 import styles from './style.js';
 
-class TodoInput extends Component {
+interface Props {
+  onSubmit: (d: string) => void;
+}
+
+interface State { }
+
+class TodoInput extends Component<Props, State> {
+  textInput: any;
 
   handleSubmit () {
     const { onSubmit } = this.props;

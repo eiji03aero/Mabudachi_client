@@ -1,10 +1,9 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import {
   Text,
   View,
   FlatList,
 } from 'react-native';
-import Modal from 'react-native-modalbox';
 import uuid from 'uuid/v4';
 
 import TodoListItem from '../../organisms/TodoListItem';
@@ -12,24 +11,33 @@ import TodoInput from '../../organisms/TodoInput';
 import TodoEditModal from '../../organisms/TodoEditModal';
 import styles from './style.js';
 
-import { todos } from '../../../models/todos.json';
+import { Todo, initialTodoState } from '../../../models/Todo';
+const data = require('../../../models/todos.json');
 
-class Screen3 extends Component {
-  constructor (props) {
+interface Props { }
+
+interface State {
+  todos: Todo[];
+  editingTodo: Todo;
+  isModalOpen: boolean;
+}
+
+class Screen3 extends Component<Props,State> {
+  constructor (props: any) {
     super(props);
     this.state = {
-      todos: todos,
-      editingTodo: {},
-      isModalOpen: false
+      todos: data.todos,
+      editingTodo: initialTodoState,
+      isModalOpen: false,
     }
   }
 
-  handleSubmit (text) {
-    const { todos } = this.state;
+  public handleSubmit (text: string) {
     const newTodo = {
       id: uuid(),
       title: text,
-      description: 'here comes your newly created todo man!'
+      description: 'here comes your newly created todo man!',
+      isCompleted: false,
     }
 
     this.setState((pre, cur) => ({
@@ -40,7 +48,7 @@ class Screen3 extends Component {
     }))
   }
 
-  handleOpenEdit (id) {
+  public handleOpenEdit (id: string) {
     const todo = this.state.todos.filter((i) => i.id === id)[0];
 
     this.setState((pre) => ({
@@ -49,23 +57,20 @@ class Screen3 extends Component {
     }))
   }
 
-  handleCloseEdit () {
+  public handleCloseEdit () {
     this.setState((pre) => ({
-      editingTodo: {},
+      editingTodo: initialTodoState,
       isModalOpen: false
     }))
   }
 
-  handleDelete (id) {
-    const { todos } = this.state;
-
+  public handleDelete (id: string) {
     this.setState((pre, cur) => ({
       todos: pre.todos.filter((t) => t.id !== id)
     }))
-    console.log(id);
   }
 
-  handleCompletedChange (p) {
+  public handleCompletedChange (p: {id: string, isChecked: boolean}) {
     const { id, isChecked } = p;
     const { todos } = this.state;
     const newTodos = todos.map((t) => {
@@ -80,7 +85,7 @@ class Screen3 extends Component {
     }))
   }
 
-  render () {
+  public render () {
     const { todos, isModalOpen, editingTodo } = this.state;
 
     return (

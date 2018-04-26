@@ -4,3 +4,10 @@ export interface Todo {
   description: string;
   isCompleted: boolean;
 }
+
+export const initialTodoState = {
+  id: '',
+  title: '',
+  description: '',
+  isCompleted: false,
+};

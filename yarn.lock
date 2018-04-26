@@ -396,6 +396,24 @@
   version "22.2.3"
   resolved "https://registry.yarnpkg.com/@types/jest/-/jest-22.2.3.tgz#0157c0316dc3722c43a7b71de3fdf3acbccef10d"
 
+"@types/node@*":
+  version "9.6.6"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-9.6.6.tgz#439b91f9caf3983cad2eef1e11f6bedcbf9431d2"
+
+"@types/react-native-modalbox@^1.4.6":
+  version "1.4.6"
+  resolved "https://registry.yarnpkg.com/@types/react-native-modalbox/-/react-native-modalbox-1.4.6.tgz#5b43d3b2e1e3ff67b2b55642391f41c204619f81"
+  dependencies:
+    "@types/react" "*"
+    "@types/react-native" "*"
+
+"@types/react-native-vector-icons@^4.6.0":
+  version "4.6.0"
+  resolved "https://registry.yarnpkg.com/@types/react-native-vector-icons/-/react-native-vector-icons-4.6.0.tgz#121bfcedffca18ffdf25f7db8ab9a8d88c932666"
+  dependencies:
+    "@types/react" "*"
+    "@types/react-native" "*"
+
 "@types/react-native@*", "@types/react-native@^0.52.20":
   version "0.52.20"
   resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.52.20.tgz#ab47fd2de3fd81c398da1253ddf7cea5f798e17d"
@@ -412,6 +430,12 @@
 "@types/react@*", "@types/react@^16.1.0":
   version "16.1.0"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-16.1.0.tgz#6c0e9955ce73f332b4a1948d45decaf18c764c6e"
+
+"@types/uuid@^3.4.3":
+  version "3.4.3"
+  resolved "https://registry.yarnpkg.com/@types/uuid/-/uuid-3.4.3.tgz#121ace265f5569ce40f4f6d0ff78a338c732a754"
+  dependencies:
+    "@types/node" "*"
 
 abab@^1.0.4:
   version "1.0.4"
