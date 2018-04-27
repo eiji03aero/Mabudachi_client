@@ -12,7 +12,7 @@ import TodoEditModal from '../../organisms/TodoEditModal';
 import styles from './style.js';
 
 import { Todo, initialTodoState } from '../../../models/Todo';
-const data = require('../../../models/todos.json');
+const data = require('../../../../assets/data/todos.json');
 
 interface Props { }
 

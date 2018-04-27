@@ -6,7 +6,7 @@ import {
 } from 'react-native';
 import styles from './style';
 
-const bgImage = require('../../../assets/images/fb_login_bg.jpg');
+const bgImage = require('../../../../assets/images/fb_login_bg.jpg');
 
 interface ReactProps {
   navigation: any;
@@ -32,6 +32,9 @@ const FacebookLogin: Props = ({ navigation: { navigate } }) => {
           <Button
             onPress={() => navigate('Screen3')}
             title='navigate to Screen3' />
+          <Button
+            onPress={() => navigate('ColorPicker')}
+            title='navigate to ColorPicker' />
         </View>
       </View>
     </View>
