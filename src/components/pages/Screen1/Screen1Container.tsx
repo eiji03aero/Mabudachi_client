@@ -12,7 +12,7 @@ function mapStateToProps (state: any): Screen1State {
 function mapDispatchToProps (dispatch: any): any {
   return {
     onButtonPushed: () => dispatch(buttonPushed()),
-  }
+  };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Screen1);
