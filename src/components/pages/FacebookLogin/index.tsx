@@ -38,13 +38,13 @@ const FacebookLogin: Props = ({ navigation: { navigate } }) => {
         </View>
       </View>
     </View>
-  )
-}
+  );
+};
 
 const navigationOptions = {
   header: null,
 };
 
-FacebookLogin.navigationOptions = navigationOptions
+FacebookLogin.navigationOptions = navigationOptions;
 
-export default FacebookLogin
+export default FacebookLogin;

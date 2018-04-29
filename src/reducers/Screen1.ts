@@ -1,12 +1,12 @@
 import C from '../store/constants';
 import { Action } from '../models/redux/action';
-import { Screen1State } from '../models/states/Screen1';
+import { StateProps } from '../models/containers/Screen1';
 
-const initialState: Screen1State = {
+const initialState: StateProps = {
   isPushed: false,
 };
 
-function Screen1Reducer (state: Screen1State = initialState, action: Action): Screen1State {
+function Screen1Reducer (state: StateProps = initialState, action: Action): StateProps {
   switch (action.type) {
     case C.S1_BUTTON_PUSHED:
       return { isPushed: !state.isPushed };

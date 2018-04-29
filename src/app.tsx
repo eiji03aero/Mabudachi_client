@@ -9,7 +9,7 @@ import { StackNavigator } from 'react-navigation';
 import FacebookLogin from './components/pages/FacebookLogin';
 import { Screen1Container } from './components/pages/Screen1';
 import Screen2 from './components/pages/Screen2';
-import Screen3 from './components/pages/Screen3';
+import { Screen3Container } from './components/pages/Screen3';
 import { ColorPicker } from './components/pages/ColorPicker';
 import store from './store';
 
@@ -17,7 +17,7 @@ const AppNavigator = StackNavigator({
   FacebookLogin: { screen: FacebookLogin },
   Screen1: { screen: Screen1Container },
   Screen2: { screen: Screen2 },
-  Screen3: { screen: Screen3 },
+  Screen3: { screen: Screen3Container },
   ColorPicker: { screen: ColorPicker },
 });
 
