@@ -11,3 +11,7 @@ export const initialTodoState = {
   description: '',
   isCompleted: false,
 };
+
+export function createNewTodo (): Todo {
+  return Object.assign({}, initialTodoState);
+}

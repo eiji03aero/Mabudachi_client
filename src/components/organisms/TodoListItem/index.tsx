@@ -31,12 +31,7 @@ class TodoListItem extends Component<Props, State> {
 
   handleCompletedChange (isChecked: boolean) {
     const { onCompletedChange, todo: { id } } = this.props;
-    const params = {
-      isChecked,
-      id
-    }
-
-    onCompletedChange(params);
+    onCompletedChange(id);
   }
 
   handlePressOnTitle () {

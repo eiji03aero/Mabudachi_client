@@ -46,8 +46,6 @@ class TodoEditModal extends Component<Props, State> {
     const { isOpen } = this.props;
     const { title, description } = this.state;
 
-    console.log(this.props);
-
     return (
       <Modal
         style={styles.editModalContainer}

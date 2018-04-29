@@ -41,7 +41,6 @@ class Screen2 extends Component<Props,State> {
         if (resJson.cod === '404') {
           return this.setState({ main: resJson.message, isFetching: false })
         }
-        console.log(resJson)
         const main = resJson.weather[0].main
         const description = resJson.weather[0].description
         const temp = resJson.main.temp
