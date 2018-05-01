@@ -2,7 +2,7 @@ import C from '../store/constants';
 import { Action } from '../models/redux/action';
 import { StateProps } from '../models/containers/Screen1';
 
-const initialState: StateProps = {
+export const initialState: StateProps = {
   isPushed: false,
 };
 

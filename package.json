@@ -7,7 +7,7 @@
     "dev:ios": "rndebugger-open & react-native run-ios --simulator=\"iPhone 6\"",
     "ts:dev": "rm -rf build & tsc -w",
     "lint": "tslint -c tslint.json 'src/**/*.{ts,tsx}' --format stylish",
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "dependencies": {
     "@types/react-redux": "^5.0.18",
@@ -43,7 +43,10 @@
   },
   "jest": {
     "preset": "react-native",
-    "testRegex": "\\.spec\\.tsx?$",
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "\\.spec\\.(jsx?|tsx?)$",
     "moduleFileExtensions": [
       "js",
       "jsx",
